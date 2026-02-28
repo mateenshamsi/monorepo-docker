@@ -1,18 +1,15 @@
 {
-  "name": "backend",
+  "name": "ws",
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "dependencies": {
+    "db":"*" 
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
-  },
-  "dependencies": {
-    "@types/express": "^5.0.6",
-    "db": "workspace:*",
-    "dotenv": "^17.3.1",
-    "express": "^5.2.1"
   }
 }
