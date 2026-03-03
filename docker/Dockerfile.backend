@@ -1,15 +1,14 @@
 FROM oven/bun:1
 WORKDIR /usr/src/app
 
-# Copy root manifests first (better layer caching too)
-COPY package.json bun.lock turbo.json ./
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
 
-# Copy workspace directories
+COPY package.json bun.lock turbo.json ./
 COPY packages ./packages
 COPY apps/backend ./apps/backend
 
 RUN bun install
-
 RUN bun run db:generate
 
 EXPOSE 8080
