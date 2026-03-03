@@ -1,5 +1,7 @@
 FROM oven/bun:1 
 WORKDIR /usr/src/app
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
 COPY ./packages ./packages
 COPY ./bun.lock ./bun.lock
 COPY ./package.json ./package.json
